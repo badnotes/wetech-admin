@@ -29,8 +29,8 @@ public class PermissionController {
 
     @GetMapping("no-pager")
     @RequiresPermissions("permission:view")
-    public Result<PageWrapper<PermissionTreeVO>> queryPermissionTreeNoPager() {
-        List<PermissionTreeDTO> permissionTreeDTOS = permissionService.queryPermissionTree();
+    public Result<PageWrapper<PermissionTreeVO>> queryPermissionTreeNoPager(String appKey) {
+        List<PermissionTreeDTO> permissionTreeDTOS = permissionService.queryPermissionTree(appKey);
         PageWrapper<PermissionTreeVO> objectPageWrapper = new PageWrapper<>();
         objectPageWrapper.setData(permissionTreeDTOS.stream().map(PermissionTreeVO::new).collect(Collectors.toList()));
         return Result.success(objectPageWrapper);
@@ -38,8 +38,8 @@ public class PermissionController {
 
     @GetMapping("tree")
     @RequiresPermissions("permission:view")
-    public Result queryPermissionTree() {
-        return Result.success(permissionService.queryPermissionTree());
+    public Result queryPermissionTree(String appKey) {
+        return Result.success(permissionService.queryPermissionTree(appKey));
     }
 
     @PutMapping

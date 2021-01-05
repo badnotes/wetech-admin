@@ -29,7 +29,7 @@ public interface PermissionService {
 
     List<Permission> queryPermissionsByOrder();
 
-    List<PermissionTreeDTO> queryPermissionTree();
+    List<PermissionTreeDTO> queryPermissionTree(String appKey);
 
     void updateNotNull(Permission permission);
 

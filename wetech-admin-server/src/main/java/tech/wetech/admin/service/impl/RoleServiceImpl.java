@@ -7,6 +7,7 @@ import tech.wetech.admin.model.dto.RoleDTO;
 import tech.wetech.admin.model.entity.Role;
 import tech.wetech.admin.service.PermissionService;
 import tech.wetech.admin.service.RoleService;
+import tech.wetech.mybatis.example.Example;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -51,10 +52,10 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public List<RoleDTO> queryAllRole() {
-        return roleMapper.selectAll().stream()
-                .map(RoleDTO::new)
-                .collect(Collectors.toList());
+    public List<RoleDTO> queryAllRole(String appKey) {
+        return roleMapper.selectList(new Role(appKey)).stream()
+            .map(RoleDTO::new)
+            .collect(Collectors.toList());
     }
 
     @Override

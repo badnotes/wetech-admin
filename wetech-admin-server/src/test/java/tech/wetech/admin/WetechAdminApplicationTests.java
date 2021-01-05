@@ -30,7 +30,7 @@ public class WetechAdminApplicationTests {
 
     @Test
     public void queryPermissionTreeWithService() {
-        List<PermissionTreeDTO> permissionTreeDTOS = permissionService.queryPermissionTree();
+        List<PermissionTreeDTO> permissionTreeDTOS = permissionService.queryPermissionTree("");
         log.info("返回的json为：{}", JSONUtil.toJSONString(permissionTreeDTOS));
     }
 

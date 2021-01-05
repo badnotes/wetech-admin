@@ -22,8 +22,8 @@ public class RoleController {
 
     @GetMapping
     @RequiresPermissions("role:view")
-    public Result<List<RoleDTO>> queryRoleList() {
-        return Result.success(roleService.queryAllRole());
+    public Result<List<RoleDTO>> queryRoleList(String appKey) {
+        return Result.success(roleService.queryAllRole(appKey));
     }
 
     @RequiresPermissions("role:create")

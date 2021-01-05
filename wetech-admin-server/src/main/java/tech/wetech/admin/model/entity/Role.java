@@ -39,4 +39,12 @@ public class Role {
      */
     private String permissionIds;
 
+    private String appKey;
+
+    public Role() {
+    }
+
+    public Role(String appKey) {
+        this.appKey = appKey;
+    }
 }

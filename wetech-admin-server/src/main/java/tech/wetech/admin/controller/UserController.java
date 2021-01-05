@@ -11,7 +11,7 @@ import tech.wetech.admin.model.dto.UserPageDTO;
 import tech.wetech.admin.model.entity.User;
 import tech.wetech.admin.model.enumeration.CommonResultStatus;
 import tech.wetech.admin.model.query.UserQuery;
-import tech.wetech.admin.model.vo.UserBatchDeleteVO;
+import tech.wetech.admin.model.vo.BatchDeleteVO;
 import tech.wetech.admin.service.UserService;
 
 import javax.validation.constraints.NotNull;
@@ -50,7 +50,7 @@ public class UserController {
 
     @DeleteMapping
     @RequiresPermissions("user:delete")
-    public Result deleteBatchByIds(@RequestBody @Validated UserBatchDeleteVO userDeleteVO) {
+    public Result deleteBatchByIds(@RequestBody @Validated BatchDeleteVO userDeleteVO) {
         Long[] ids = userDeleteVO.getIds();
         if (isSelf(ids)) {
             return Result.failure(CommonResultStatus.FAILED_DEL_OWN);

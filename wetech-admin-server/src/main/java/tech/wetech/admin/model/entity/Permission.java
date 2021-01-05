@@ -57,6 +57,7 @@ public class Permission {
      */
     private Long sort;
 
+    private String appKey;
 
     public String makeSelfAsParentIds() {
         return getParentIds() + getId() + "/";

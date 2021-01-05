@@ -32,7 +32,7 @@ public interface RoleService {
      */
     Set<String> queryPermissions(Long... roleIds);
 
-    List<RoleDTO> queryAllRole();
+    List<RoleDTO> queryAllRole(String appKey);
 
     void create(Role role);
 

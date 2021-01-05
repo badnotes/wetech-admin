@@ -75,8 +75,9 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
-    public List<PermissionTreeDTO> queryPermissionTree() {
+    public List<PermissionTreeDTO> queryPermissionTree(String appKey) {
         Example<Permission> example = Example.of(Permission.class);
+        example.createCriteria().andEqualTo(Permission::getAppKey, appKey);
         example.setSort(Sort.by("sort"));
         List<Permission> permissions = permissionMapper.selectByExample(example).stream()
                 .collect(Collectors.toList());
